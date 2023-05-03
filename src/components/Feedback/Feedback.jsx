@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FeedbackOptions, Statistics, SectionTitle, FeedbackButtons, Button, FeedbackOutput, FeedbackItem } from './Feedback.styled';
 
 class Feedback extends Component {
     state = {
@@ -33,24 +34,24 @@ class Feedback extends Component {
 
     render() {
         return (
-            <div className='feedback'>
-                <div className='feedback__controls'>
-                    <h2 className='feedback__title'>Please leave feedback</h2>
-                    <div className='feedback__buttons'>
-                        <button type="button" onClick={this.incrementPositiveFeedback} data-state="good">Good</button>
-                        <button type="button" onClick={this.incrementNeutralFeedback}>Neutral</button>
-                        <button type="button" onClick={this.incrementNegativeFeedback}>Bad</button>
-                    </div>
-                </div>
-                <div className='feedback__statistic'>
-                    <h2 className='feedback__title'>Statistics</h2>
-                    <div className='feedback__output'>
-                        <span>Good: {this.state.good}</span>
-                        <span>Neutral: {this.state.neutral}</span>
-                        <span>Bad: {this.state.bad}</span>
-                    </div>
-                </div>
-            </div>
+            <>
+                <FeedbackOptions>
+                    <SectionTitle className='feedback__title'>Please leave feedback</SectionTitle>
+                    <FeedbackButtons>
+                        <Button type="button" onClick={this.incrementPositiveFeedback} data-state="good">Good</Button>
+                        <Button type="button" onClick={this.incrementNeutralFeedback}>Neutral</Button>
+                        <Button type="button" onClick={this.incrementNegativeFeedback}>Bad</Button>
+                    </FeedbackButtons>
+                </FeedbackOptions>
+                <Statistics>
+                    <SectionTitle className='feedback__title'>Statistics</SectionTitle>
+                    <FeedbackOutput>
+                        <FeedbackItem>Good: {this.state.good}</FeedbackItem>
+                        <FeedbackItem>Neutral: {this.state.neutral}</FeedbackItem>
+                        <FeedbackItem>Bad: {this.state.bad}</FeedbackItem>
+                    </FeedbackOutput>
+                </Statistics>
+            </>
         )
     }
 }
