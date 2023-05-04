@@ -10,7 +10,7 @@ const Statistics = ({good, neutral, bad, total = 0, positiveFeedbackPercentage =
         <StatItem>Neutral: {neutral}</StatItem>
         <StatItem>Bad: {bad}</StatItem>
         <StatItem>Total: {total}</StatItem>
-        <StatItem>Positive feedback: {positiveFeedbackPercentage}%</StatItem>
+        <StatItem>Positive feedback: {positiveFeedbackPercentage ? positiveFeedbackPercentage : 0}%</StatItem>
         </StatList>
     )
 };
